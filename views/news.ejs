@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+<main>
+
+  <!-- News Section -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Latest News</h2>
+      <div class="row g-4">
+        <% posts.forEach(post=> { %>
+          <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-3 h-100">
+              <img src="<%= 0 || './images/news_logo.png' %>" class="card-img-top"
+              alt="<%= post.title %>">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= post.title %>
+                </h5>
+                <p class="card-text">
+                  <%= post.content.substring(0, 150) %>...
+                </p>
+                <a href="/posts/<%= post.id %>" class="btn btn-primary">Read More</a>
+              </div>
+              <div class="card-footer text-muted text-end">
+                <small>Written by <%= post.written_by %></small>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <%- include('partials/footer') %>

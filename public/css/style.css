@@ -1,0 +1,78 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================================= BASICS ================================= */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+main{
+    min-height: calc(100vh - 75px - 54px);
+}
+
+
+h1, h2 {
+    color: #222;
+}
+
+
+/* ================================= NAVBAR ================================= */
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem 2rem;
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+}
+
+/* Main Content */
+.main-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* ================================= FOOTER ================================= */
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  color: #ddd;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+

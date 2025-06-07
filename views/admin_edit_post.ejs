@@ -1,0 +1,87 @@
+<%- include("partials/header") %>
+<style>
+  .tox {
+    z-index: 1000 !important;
+  }
+</style>
+
+  <main class="container py-5">
+    <h2 class="text-center mb-4">
+      <%= post ? "Edit Post" : "Create New Post" %>
+    </h2>
+
+    <form action="<%= post ? `/admin/posts/update/${post.id}` : '/admin/posts/create' %>" method="POST"
+      enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="title" class="form-label">Post Title</label>
+        <input type="text" class="form-control" id="title" name="title" required value="<%= post ? post.title : '' %>">
+      </div>
+
+      <div class="mb-3">
+        <label for="written_by" class="form-label">Written By</label>
+        <input type="text" class="form-control" id="written_by" name="written_by" required
+          value="<%= post ? post.written_by : '' %>">
+      </div>
+
+      <div class="mb-3">
+        <label for="content" class="form-label">Post Content</label>
+        <textarea class="form-control" id="content" name="content" rows="10" required><%- post ? post.content : '' %></textarea>
+
+
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Cover Image</label>
+        <input type="file" class="form-control" id="image" name="image">
+      </div>
+
+      <div class="mb-3">
+        <label for="section" class="form-label">Section</label>
+        <select class="form-select" id="section" name="section" required>
+          <option disabled <%=!post ? 'selected' : '' %>>Choose section</option>
+          <option value="news" <%=post?.section==='news' ? 'selected' : '' %>>News</option>
+          <option value="blog" <%=post?.section==='blog' ? 'selected' : '' %>>Blog</option>
+          <option value="tutorial" <%=post?.section==='tutorial' ? 'selected' : '' %>>Tutorial</option>
+          <option value="announcement" <%=post?.section==='announcement' ? 'selected' : '' %>>Announcement</option>
+        </select>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary">
+          <%= post ? "Update Post" : "Publish Post" %>
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Latest TinyMCE from official CDN -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    tinymce.init({
+      selector: '#content',
+      height: 400,
+      plugins: 'advlist autolink lists link image charmap preview anchor pagebreak code',
+      toolbar: 'undo redo | styles | fontselect fontsizeselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code',
+      menubar: false,
+      branding: false,
+
+      font_family_formats:
+        "Arial=arial,helvetica,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Tahoma=tahoma,arial,helvetica,sans-serif; Times New Roman=times new roman,times; Verdana=verdana,geneva;",
+
+      font_size_formats: "8pt 10pt 12pt 14pt 16pt 18pt 24pt 36pt",
+
+      content_style: "body { font-family:Arial,sans-serif; font-size:14px; }"
+    });
+  });
+</script>
+<script>
+  console.log("Post content:", `<%= post ? post.content : '' %>`);
+</script>
+
+
+
+
+
+  <%- include("partials/footer") %>
