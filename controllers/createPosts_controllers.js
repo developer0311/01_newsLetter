@@ -26,8 +26,8 @@ export async function createPost(req, res) {
     }
 
     const query = `
-      INSERT INTO posts (title, written_by, content, section, image_url, created_at)
-      VALUES ($1, $2, $3, $4, $5, NOW())
+      INSERT INTO posts (title, written_by, content, section, image_url, created_at, updated_at)
+      VALUES ($1, $2, $3, $4, $5, NOW(), NOW())
       RETURNING id
     `;
 

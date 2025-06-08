@@ -52,7 +52,7 @@ VALUES
  'Blog', 
  NOW(), 
  NOW(),
- 'Admin Name');  -- Replace with actual author name
+ 'Diprati Das');  -- Replace with actual author name
 
 -- Insert Post 2
 INSERT INTO posts (title, content, image_url, section, created_at, updated_at, written_by)
@@ -63,7 +63,7 @@ VALUES
  'News', 
  NOW(), 
  NOW(),
- 'Admin Name');  -- Replace with actual author name
+ 'Diprati Das');  -- Replace with actual author name
 
 -- Insert Post 3
 INSERT INTO posts (title, content, image_url, section, created_at, updated_at, written_by)
@@ -74,7 +74,7 @@ VALUES
  'Blog', 
  NOW(), 
  NOW(),
- 'Admin Name');  -- Replace with actual author name
+ 'Diprati Das');  -- Replace with actual author name
 
 -- Insert Post 4
 INSERT INTO posts (title, content, image_url, section, created_at, updated_at, written_by)
@@ -85,7 +85,7 @@ VALUES
  'Tutorial', 
  NOW(), 
  NOW(),
- 'Admin Name');  -- Replace with actual author name
+ 'Diprati Das');  -- Replace with actual author name
 
 -- Insert Post 5
 INSERT INTO posts (title, content, image_url, section, created_at, updated_at, written_by)
@@ -96,4 +96,4 @@ VALUES
  'Blog', 
  NOW(), 
  NOW(),
- 'Admin Name');  -- Replace with actual author name
+ 'Diprati Das');  -- Replace with actual author name
