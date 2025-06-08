@@ -20,10 +20,25 @@ const app = express();
 const port = process.env.SERVER_PORT || 3000;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-app.use(helmet()); // adds common security headers
 
 app.use(flash());
 
+
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "https://cdn.jsdelivr.net"],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",  // Remove this if you clean up inline styles
+        "https://cdn.jsdelivr.net",
+        "https://fonts.googleapis.com"
+      ],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"]
+    }
+  }
+}));
 
 
 // Set EJS as the view engine
