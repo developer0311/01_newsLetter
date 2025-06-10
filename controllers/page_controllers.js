@@ -72,6 +72,28 @@ export async function showNewsPage(req, res) {
   }
 }
 
+export async function showPost(req, res) {
+  const postId = req.params.postId;
+
+  try {
+    if (!req.session.subscribed) {
+      return res.redirect("/register");
+    }
+    const result = await db.query("SELECT * FROM posts WHERE id = $1", [postId]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).render("404", { message: "Post not found" });
+    }
+
+    const post = result.rows[0];
+
+    res.render("post", { post });
+  } catch (err) {
+    console.error("Error fetching post:", err);
+    res.status(500).send("Server error");
+  }
+}
+
 // Admin Login Page
 export async function showAdminLoginPage(req, res) {
   try {

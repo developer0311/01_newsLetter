@@ -4,6 +4,7 @@ import {
   showRegisterPage,
   showLoginPage,
   showNewsPage,
+  showPost,
   showAdminLoginPage,
   showAdminPostPage,
 } from "../controllers/page_controllers.js";
@@ -14,6 +15,7 @@ router.get("/", showHomePage);
 router.get("/register", showRegisterPage);
 router.get("/login", showLoginPage);
 router.get("/news", showNewsPage);
+router.get("/posts/:postId", showPost);
 router.get("/admin/login", showAdminLoginPage);
 router.get("/admin/post/new", showAdminPostPage);         // to create a new post
 router.get("/admin/post/edit/:postId", showAdminPostPage); // to edit an existing one
